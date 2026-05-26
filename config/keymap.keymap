@@ -14,16 +14,25 @@
         };
     };
 
+    behaviors {
+        td0: td0 {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD0";
+            #binding-cells = <0>;
+            bindings = <&kp INTERNATIONAL_5>, <&kp INTERNATIONAL_4>, <&mo 2>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
         layer_0 {
             bindings = <
-&none  &none       &none         &none         &none   &none                                &none            &none  &none      &none    &none            &none
-&none  &kp Q       &kp W         &kp E         &kp R   &kp T                                &kp Y            &kp U  &kp I      &kp O    &kp P            &none
-&none  &kp A       &kp S         &kp D         &kp F   &kp G      &none        &none        &kp H            &kp J  &kp K      &kp L    &kp MINUS        &none
-&none  &kp Z       &kp X         &kp C         &kp V   &kp B      &kp TAB      &kp ESCAPE   &kp N            &kp M  &kp COMMA  &kp DOT  &mt RSHFT SLASH  &none
-&none  &kp LSHIFT  &kp LEFT_ALT  &kp LEFT_WIN  &trans  &kp LCTRL  &lt 3 SPACE  &lt 1 ENTER  &lt 2 BACKSPACE  &none  &none      &none    &kp DELETE       &none
+&none  &none       &none         &none         &none  &none                                &none            &none  &none      &none    &none            &none
+&none  &kp Q       &kp W         &kp E         &kp R  &kp T                                &kp Y            &kp U  &kp I      &kp O    &kp P            &none
+&none  &kp A       &kp S         &kp D         &kp F  &kp G      &none        &none        &kp H            &kp J  &kp K      &kp L    &kp MINUS        &none
+&none  &kp Z       &kp X         &kp C         &kp V  &kp B      &kp TAB      &kp ESCAPE   &kp N            &kp M  &kp COMMA  &kp DOT  &mt RSHFT SLASH  &none
+&none  &kp LSHIFT  &kp LEFT_ALT  &kp LEFT_WIN  &td0   &kp LCTRL  &lt 3 SPACE  &lt 1 ENTER  &lt 2 BACKSPACE  &none  &none      &none    &kp DELETE       &none
             >;
         };
 
