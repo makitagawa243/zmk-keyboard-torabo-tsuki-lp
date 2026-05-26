@@ -47,6 +47,21 @@
             bindings = <&kp SEMI>;
             key-positions = <34 35>;
         };
+
+        esc {
+            bindings = <&kp ESCAPE>;
+            key-positions = <13 14>;
+        };
+
+        left-click {
+            bindings = <&mkp LCLK>;
+            key-positions = <47 48>;
+        };
+
+        right-click {
+            bindings = <&mkp RCLK>;
+            key-positions = <48 49>;
+        };
     };
 
     behaviors {
