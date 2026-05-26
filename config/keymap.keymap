@@ -90,11 +90,11 @@
 
         arrow {
             bindings = <
-&trans  &trans     &trans           &trans    &trans       &trans                   &trans          &trans          &trans         &trans           &trans  &trans
-&trans  &kp ESC    &kp LS(LC(TAB))  &kp UP    &kp LC(TAB)  &trans                   &kp LC(LA(N1))  &kp PG_UP       &kp PAGE_DOWN  &trans           &trans  &trans
-&trans  &kp HOME   &kp LEFT         &kp DOWN  &kp RIGHT    &kp END  &trans  &trans  &kp LC(LA(N2))  &kp PG_DN       &trans         &kp PRINTSCREEN  &trans  &trans
-&trans  &kp LSHFT  &trans           &trans    &trans       &trans   &trans  &trans  &kp LC(LA(N3))  &kp LC(LA(N4))  &trans         &trans           &trans  &trans
-&trans  &trans     &trans           &trans    &trans       &trans   &trans  &trans  &trans          &trans          &trans         &trans           &trans  &trans
+&trans  &trans     &trans           &trans    &trans       &trans                   &trans          &trans          &trans          &trans           &trans  &trans
+&trans  &kp ESC    &kp LS(LC(TAB))  &kp UP    &kp LC(TAB)  &trans                   &kp LC(LA(N1))  &kp PG_UP       &sheet_prev     &trans           &trans  &trans
+&trans  &kp HOME   &kp LEFT         &kp DOWN  &kp RIGHT    &kp END  &trans  &trans  &kp LC(LA(N2))  &kp PG_DN       &sheet_forward  &kp PRINTSCREEN  &trans  &trans
+&trans  &kp LSHFT  &trans           &trans    &trans       &trans   &trans  &trans  &kp LC(LA(N3))  &kp LC(LA(N4))  &trans          &trans           &trans  &trans
+&trans  &trans     &trans           &trans    &trans       &trans   &trans  &trans  &trans          &trans          &trans          &trans           &trans  &trans
             >;
         };
 
