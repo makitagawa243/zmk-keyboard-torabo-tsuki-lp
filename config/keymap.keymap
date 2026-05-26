@@ -27,6 +27,26 @@
             bindings = <&kp INTERNATIONAL_5>;
             key-positions = <25 26>;
         };
+
+        eq {
+            bindings = <&kp UNDER>;
+            key-positions = <42 41>;
+        };
+
+        henkan {
+            bindings = <&kp INTERNATIONAL_4>;
+            key-positions = <35 36>;
+        };
+
+        colon {
+            bindings = <&kp SINGLE_QUOTE>;
+            key-positions = <34 33>;
+        };
+
+        semicolon {
+            bindings = <&kp SEMI>;
+            key-positions = <34 35>;
+        };
     };
 
     behaviors {
