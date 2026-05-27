@@ -135,6 +135,51 @@
 
             label = "HEAD1";
         };
+
+        head2: head2 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LCTRL &kp LALT>,
+                <&macro_tap>,
+                <&kp NUMBER_2>,
+                <&macro_pause_for_release>,
+                <&macro_release>,
+                <&kp LCTRL &kp LEFT_ALT>;
+
+            label = "HEAD2";
+        };
+
+        head3: head3 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LCTRL &kp LALT>,
+                <&macro_tap>,
+                <&kp NUMBER_3>,
+                <&macro_pause_for_release>,
+                <&macro_release>,
+                <&kp LCTRL &kp LEFT_ALT>;
+
+            label = "HEAD3";
+        };
+
+        head4: head4 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LCTRL &kp LALT>,
+                <&macro_tap>,
+                <&kp NUMBER_4>,
+                <&macro_pause_for_release>,
+                <&macro_release>,
+                <&kp LCTRL &kp LEFT_ALT>;
+
+            label = "HEAD4";
+        };
     };
 
     keymap {
@@ -172,11 +217,11 @@
 
         arrow {
             bindings = <
-&trans  &trans     &trans           &trans    &trans       &trans                   &trans          &trans          &trans          &trans           &trans  &trans
-&trans  &kp ESC    &kp LS(LC(TAB))  &kp UP    &kp LC(TAB)  &trans                   &kp LC(LA(N1))  &kp PG_UP       &sheet_prev     &trans           &trans  &trans
-&trans  &kp HOME   &kp LEFT         &kp DOWN  &kp RIGHT    &kp END  &trans  &trans  &kp LC(LA(N2))  &kp PG_DN       &sheet_forward  &kp PRINTSCREEN  &trans  &trans
-&trans  &kp LSHFT  &trans           &trans    &trans       &trans   &trans  &trans  &kp LC(LA(N3))  &kp LC(LA(N4))  &trans          &trans           &trans  &trans
-&trans  &trans     &trans           &trans    &trans       &trans   &trans  &trans  &trans          &trans          &trans          &trans           &trans  &trans
+&trans  &trans     &trans           &trans    &trans       &trans                   &trans  &trans     &trans          &trans           &trans  &trans
+&trans  &kp ESC    &kp LS(LC(TAB))  &kp UP    &kp LC(TAB)  &trans                   &head1  &kp PG_UP  &sheet_prev     &trans           &trans  &trans
+&trans  &kp HOME   &kp LEFT         &kp DOWN  &kp RIGHT    &kp END  &trans  &trans  &head2  &kp PG_DN  &sheet_forward  &kp PRINTSCREEN  &trans  &trans
+&trans  &kp LSHFT  &trans           &trans    &trans       &trans   &trans  &trans  &head3  &head4     &trans          &trans           &trans  &trans
+&trans  &trans     &trans           &trans    &trans       &trans   &trans  &trans  &trans  &trans     &trans          &trans           &trans  &trans
             >;
         };
 
