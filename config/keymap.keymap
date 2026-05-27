@@ -24,9 +24,7 @@
     };
 };
 
-&mkp_input_listener {
-    input-processors = <&zip_temp_layer 4 500>;
-};
+&mkp_input_listener { input-processors = <&zip_temp_layer 4 500>; };
 
 / {
     combos {
@@ -121,6 +119,21 @@
                 <&kp LALT>;
 
             label = "SHEET_FORWARD";
+        };
+
+        head1: head1 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LCTRL &kp LALT>,
+                <&macro_tap>,
+                <&kp NUMBER_1>,
+                <&macro_pause_for_release>,
+                <&macro_release>,
+                <&kp LCTRL &kp LEFT_ALT>;
+
+            label = "HEAD1";
         };
     };
 
