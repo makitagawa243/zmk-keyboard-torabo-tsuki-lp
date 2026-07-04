@@ -15,16 +15,17 @@
 &pointer_accel {
     input-type = <INPUT_EV_REL>;
     track-remainders;
-    min-factor = <50>;
+    min-factor = <100>;
     max-factor = <1000>;
     speed-threshold = <900>;
     speed-max = <1000>;
-    acceleration-exponent = <2>;
+    acceleration-exponent = <1>;
 };
 
 &pointing_listener {
     input-processors =
         <&pointer_accel>,
+        <&zip_xy_scaler 2 3>,
         <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>,
         <&zip_temp_layer 4 1000>;
 
