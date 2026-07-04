@@ -15,9 +15,9 @@
 &pointer_accel {
     input-type = <INPUT_EV_REL>;
     track-remainders;
-    min-factor = <400>;
-    max-factor = <2000>;
-    speed-threshold = <1000>;
+    min-factor = <300>;
+    max-factor = <1500>;
+    speed-threshold = <1200>;
     speed-max = <3500>;
     acceleration-exponent = <2>;
 };
@@ -32,7 +32,7 @@
         layers = <5>;
         input-processors =
             <&zip_xy_to_scroll_mapper>,
-            <&zip_scroll_scaler 1 8>;
+            <&zip_scroll_scaler 1 6>;
     };
 };
 
