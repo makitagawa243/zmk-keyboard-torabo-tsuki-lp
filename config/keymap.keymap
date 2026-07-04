@@ -16,9 +16,9 @@
     input-type = <INPUT_EV_REL>;
     track-remainders;
     min-factor = <300>;
-    max-factor = <1500>;
-    speed-threshold = <1300>;
-    speed-max = <2500>;
+    max-factor = <2100>;
+    speed-threshold = <2000>;
+    speed-max = <2000>;
     acceleration-exponent = <2>;
 };
 
@@ -32,7 +32,8 @@
         layers = <5>;
         input-processors =
             <&zip_xy_to_scroll_mapper>,
-            <&zip_scroll_scaler 1 6>;
+            <&zip_scroll_scaler 1 6>,
+            <&zip_scroll_transform INPUT_TRANSFORM_X_INVERT>;
     };
 };
 
@@ -223,7 +224,7 @@
 &trans  &kp KP_MINUS   &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp KP_PLUS                      &kp EXCL           &kp AT_SIGN    &kp HASH         &kp DOLLAR            &kp PERCENT       &trans
 &trans  &kp KP_DIVIDE  &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp KP_ASTERISK  &trans  &trans  &kp CARET          &kp AMPS       &kp ASTRK        &kp LEFT_PARENTHESIS  &kp LEFT_BRACKET  &trans
 &trans  &kp KP_N0      &kp KP_N1        &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp KP_DOT       &trans  &trans  &kp RIGHT_BRACKET  &kp BACKSLASH  &kp RIGHT_BRACE  &kp PIPE              &kp INT_YEN       &trans
-&trans  &trans         &trans           &kp KP_NUM       &trans           &trans           &trans  &trans  &trans             &trans         &trans           &trans                &trans            &trans
+&trans  &trans         &trans           &kp KP_NUM       &trans           &trans           &trans  &trans  &trans             &trans         &trans           &trans                &LS(0x87)         &trans
             >;
         };
 
