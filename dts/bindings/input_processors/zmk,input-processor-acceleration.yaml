@@ -1,0 +1,41 @@
+# SPDX-License-Identifier: MIT
+description: ZMK velocity-based pointer acceleration input processor
+
+compatible: "zmk,input-processor-acceleration"
+
+include: ip_zero_param.yaml
+
+properties:
+  input-type:
+    type: int
+    required: true
+    description: Input event type to accelerate (e.g. INPUT_EV_REL)
+
+  min-factor:
+    type: int
+    default: 1000
+    description: Minimum pointer speed factor (scaled by 1000)
+
+  max-factor:
+    type: int
+    default: 3500
+    description: Maximum pointer speed factor (scaled by 1000)
+
+  speed-threshold:
+    type: int
+    default: 1000
+    description: Pointer speed (counts per second) at which factor reaches 1.0
+
+  speed-max:
+    type: int
+    default: 6000
+    description: Pointer speed (counts per second) at which factor reaches max-factor
+
+  acceleration-exponent:
+    type: int
+    default: 1
+    description: Exponent for the acceleration curve
+
+  track-remainders:
+    type: boolean
+    description: Accumulate fractional movement remainders
