@@ -16,8 +16,8 @@
     input-type = <INPUT_EV_REL>;
     track-remainders;
     min-factor = <100>;
-    max-factor = <700>;
-    speed-threshold = <650>;
+    max-factor = <1000>;
+    speed-threshold = <900>;
     speed-max = <1000>;
     acceleration-exponent = <2>;
 };
@@ -32,7 +32,7 @@
         layers = <5>;
         input-processors =
             <&zip_xy_to_scroll_mapper>,
-            <&zip_scroll_scaler 1 6>,
+            <&zip_scroll_scaler 1 3>,
             <&zip_scroll_transform INPUT_TRANSFORM_X_INVERT>;
     };
 };
