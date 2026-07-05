@@ -78,7 +78,7 @@ static uint32_t pow_scaled(uint32_t t, uint8_t exp) {
 }
 
 static uint32_t compute_factor_scaled(const struct accel_config *cfg, uint32_t cps) {
-    const uint32_t f_min = clamp_u32(cfg->min_factor, 100, 20000);
+    const uint32_t f_min = clamp_u32(cfg->min_factor, 50, 20000);
     const uint32_t f_max = clamp_u32(cfg->max_factor, f_min, 20000);
     const uint32_t v1 = cfg->speed_threshold;
     const uint32_t v2 = (cfg->speed_max > v1) ? cfg->speed_max : (v1 + 1);
