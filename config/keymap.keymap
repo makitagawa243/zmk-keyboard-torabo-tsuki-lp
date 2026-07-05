@@ -15,11 +15,11 @@
 &pointer_accel {
     input-type = <INPUT_EV_REL>;
     track-remainders;
-    min-factor = <50>;
+    min-factor = <100>;
     max-factor = <1000>;
-    speed-threshold = <1600>;
+    speed-threshold = <2200>;
     speed-max = <1000>;
-    acceleration-exponent = <2>;
+    acceleration-exponent = <1>;
 };
 
 &pointing_listener {
