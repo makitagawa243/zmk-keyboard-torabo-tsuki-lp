@@ -26,6 +26,11 @@ properties:
     default: 1000
     description: Pointer speed (counts per second) at which factor reaches 1.0
 
+  speed-plateau:
+    type: int
+    default: 0
+    description: Pointer speed (counts per second) below which factor stays at min-factor
+
   speed-max:
     type: int
     default: 6000

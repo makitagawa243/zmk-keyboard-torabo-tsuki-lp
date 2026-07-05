@@ -30,6 +30,7 @@ struct accel_config {
     uint16_t min_factor;
     uint16_t max_factor;
     uint32_t speed_threshold;
+    uint32_t speed_plateau;
     uint32_t speed_max;
     uint8_t acceleration_exponent;
 };
@@ -81,13 +82,23 @@ static uint32_t compute_factor_scaled(const struct accel_config *cfg, uint32_t c
     const uint32_t f_min = clamp_u32(cfg->min_factor, 100, 20000);
     const uint32_t f_max = clamp_u32(cfg->max_factor, f_min, 20000);
     const uint32_t v1 = cfg->speed_threshold;
+    const uint32_t v0 = (cfg->speed_plateau > 0 && cfg->speed_plateau < v1) ? cfg->speed_plateau : 0;
     const uint32_t v2 = (cfg->speed_max > v1) ? cfg->speed_max : (v1 + 1);
     const uint8_t e = cfg->acceleration_exponent ? cfg->acceleration_exponent : 1;
 
     const uint32_t base = (f_min > 1000) ? f_min : 1000;
 
+    if (v0 > 0 && cps <= v0) {
+        return f_min;
+    }
+
     if (cps <= v1) {
-        uint32_t t = (v1 == 0) ? SCALE : (uint32_t)((uint64_t)cps * SCALE / v1);
+        uint32_t t;
+        if (v0 > 0) {
+            t = (uint32_t)((uint64_t)(cps - v0) * SCALE / (v1 - v0));
+        } else {
+            t = (v1 == 0) ? SCALE : (uint32_t)((uint64_t)cps * SCALE / v1);
+        }
         uint32_t shaped = pow_scaled(t, e);
         int32_t span = (int32_t)base - (int32_t)f_min;
         int32_t f = (int32_t)f_min + (int32_t)((int64_t)span * shaped / SCALE);
@@ -177,6 +188,7 @@ static int accel_handle_event(const struct device *dev, struct input_event *even
         .min_factor = DT_INST_PROP_OR(inst, min_factor, 1000),                                     \
         .max_factor = DT_INST_PROP_OR(inst, max_factor, 3500),                                     \
         .speed_threshold = DT_INST_PROP_OR(inst, speed_threshold, 1000),                           \
+        .speed_plateau = DT_INST_PROP_OR(inst, speed_plateau, 0),                                  \
         .speed_max = DT_INST_PROP_OR(inst, speed_max, 6000),                                       \
         .acceleration_exponent = DT_INST_PROP_OR(inst, acceleration_exponent, 1),                \
     };                                                                                             \
