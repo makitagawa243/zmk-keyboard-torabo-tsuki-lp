@@ -58,6 +58,7 @@
         muhenkan {
             bindings = <&kp INTERNATIONAL_5>;
             key-positions = <25 26>;
+            timeout-ms = <20>;
         };
 
         eq {
