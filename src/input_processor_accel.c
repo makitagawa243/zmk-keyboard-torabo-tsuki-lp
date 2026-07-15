@@ -86,7 +86,8 @@ static uint32_t compute_factor_scaled(const struct accel_config *cfg, uint32_t c
     const uint32_t v2 = (cfg->speed_max > v1) ? cfg->speed_max : (v1 + 1);
     const uint8_t e = cfg->acceleration_exponent ? cfg->acceleration_exponent : 1;
 
-    const uint32_t base = (f_min > 1000) ? f_min : 1000;
+    /* Cap the mid-curve target at f_max so max-factor < 1000 lowers peak speed. */
+    const uint32_t base = clamp_u32((f_min > 1000) ? f_min : 1000, f_min, f_max);
 
     if (v0 > 0 && cps <= v0) {
         return f_min;
